@@ -18,7 +18,7 @@ class MFBERT(nn.Module):
             self.inference = inference_method.lower()
         
         if os.path.isdir(weights_dir) and weights_dir!='':
-            self.base = RobertaModel.from_pretrained('Model/pre-trained', output_attentions=return_attention)
+            self.base = RobertaModel.from_pretrained(weights_dir, output_attentions=return_attention)
             print('Loaded Pre-trained weights...')
         else:
             print('No Pre-trained weights found, initialising...')
